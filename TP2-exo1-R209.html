@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let celcius = 20;
+        console.log("temperature en celsius:" +celcius);
+        document.write("temperature en celsius:"+celcius);
+        
+        let fahrenheit = celcius * 9/5 +32;
+        console.log("temperature en fahrenheit:" +fahrenheit);
+        document.write("temperature en fahrenheit:"+fahrenheit);
+        
+        let longeur = 10;
+        let largeur = 5;
+        let aire = longeur * largeur;
+        console.log("l'aire du rectangle = " +aire);
+        document.write("l'aire du rectangle = "+aire);
+
+        let prenom = "gabriel "
+        let nom = "mancel"
+        let np = prenom + nom;
+        console.log("nom prenom = " +np);
+        document.write("nom prenom = "+np);
+
+        let ht = 100;
+        let tva = 20/100 * ht;
+        let ttc = tva + ht
+        console.log("prix ttc = " +ttc);
+        document.write("prix ttc = "+ttc);
+        
+
+        
+        let resultat = ((4 >= 6) || ("herbe" != "verte")) && !(((12 * 2) == 144) && true);
+        console.log(resultat);
+        document.write(resultat);
+
+        
+        let poids = 72; 
+        let taille = 1.78; 
+        let imc = poids / (taille * taille);
+        console.log("Pour un poids de " + poids + "kg et une taille de " + taille + "m ");
+        console.log("L'IMC est de : " + imc.toFixed(2));
+        document.write("Pour un poids de " + poids + "kg et une taille de " + taille + "m ");
+        document.write("L'IMC est de : " + imc.toFixed(2));
+
+
+        let montantmini = 150;
+        let montanttotal = 150;
+        if (montanttotal >= montantmini ) {
+            console.log("Livraison gratuite !");
+        } else {
+            let fraisDeLivraison = 5 ;
+            console.log("Frais de livraison : " + fraisDeLivraison + " euros");
+        }
+
+        
+        let nombreBinaire = "01010101010101010010100010"; 
+        let nombreDecimal = parseInt(nombreBinaire, 2);
+        console.log("Nombre binaire (String) : " + nombreBinaire);
+        console.log("Conversion en décimal (Number) : " + nombreDecimal);
+        
+    </script>
+</body>
+</html>

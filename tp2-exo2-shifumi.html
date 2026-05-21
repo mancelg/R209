@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeu du Shifumi</title>
+</head>
+<body>
+
+    <div id="jeu-shifumi"></div>
+
+    <script>
+        const conteneurJeu = document.getElementById('jeu-shifumi');
+
+        let nbManches = 0;
+        let victoiresJoueur = 0;
+        let victoiresProgramme = 0;
+
+        const titre = document.createElement('h2');
+        titre.textContent = "Jouez au Shifumi !";
+        conteneurJeu.appendChild(titre);
+
+        const choixPossibles = ['Pierre', 'Feuille', 'Ciseaux'];
+        choixPossibles.forEach(choix => {
+            const bouton = document.createElement('button');
+            bouton.textContent = choix;
+
+            bouton.addEventListener('click', () => jouerManche(choix));
+            conteneurJeu.appendChild(bouton);
+        });
+
+        const affichageAction = document.createElement('p');
+        const affichageResultat = document.createElement('p');
+        const affichageScore = document.createElement('p');
+
+        conteneurJeu.appendChild(affichageAction);
+        conteneurJeu.appendChild(affichageResultat);
+        conteneurJeu.appendChild(affichageScore);
+        
+        mettreAJourScore();
+
+        function jouerManche(choixJoueur) {
+            const indexAleatoire = Math.floor(Math.random() * 3);
+            const choixProgramme = choixPossibles[indexAleatoire];
+
+            affichageAction.innerHTML = `Vous avez joué : <strong>${choixJoueur}</strong><br>Le programme a joué : <strong>${choixProgramme}</strong>`;
+
+            if (choixJoueur === choixProgramme) {
+                affichageResultat.textContent = "Egalité !";
+            } 
+            else if (
+                (choixJoueur === 'Feuille' && choixProgramme === 'Pierre') ||
+                (choixJoueur === 'Pierre' && choixProgramme === 'Ciseaux') ||
+                (choixJoueur === 'Ciseaux' && choixProgramme === 'Feuille')
+            ) {
+                affichageResultat.textContent = "Bravo, vous remportez cette manche !";
+                victoiresJoueur++; 
+            } 
+            else {
+                affichageResultat.textContent = "Perdu !";
+                victoiresProgramme++; 
+            }
+            nbManches++;
+            mettreAJourScore();
+        }
+        function mettreAJourScore() {
+            affichageScore.innerHTML = `<strong>Manches jouées : ${nbManches}</strong> | Vos victoires : ${victoiresJoueur} | Victoires programme : ${victoiresProgramme}`;
+        }
+    </script>
+</body>
+</html>
